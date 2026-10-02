@@ -91,9 +91,9 @@ document.addEventListener("pointermove", e => {
   $("#rd").setAttribute("points", L.concat(R).join(" "));
   const dg = $("#dash"), N = 16, orb = $("#orb"), stops = $$(".stop", road);
   const rects = Array.from({ length: N }, () => dg.appendChild(document.createElementNS(NS, "rect")));
-  stops.forEach(s => { const d = +s.dataset.d; s.style.left = X(d) / 9 + "%"; s.style.top = Y(d) / 5.2 + "%"; s.style.setProperty("--s", .6 + .4 * d);
+  stops.forEach(s => { const d = +s.dataset.d; s.style.left = X(d) / 9 + "%"; s.style.top = Y(d) / 5.2 + "%"; s.style.setProperty("--s", .75 + .25 * d);
     s.querySelector(".nd").onclick = () => s.classList.toggle("open"); });
-  function layout() { stops.forEach(s => s.style.setProperty("--off", HW(+s.dataset.d) * road.clientWidth / 900 + 34 + "px")); }
+  function layout() { stops.forEach(s => s.style.setProperty("--off", (s.hasAttribute("data-near") ? 32 : HW(+s.dataset.d) * road.clientWidth / 900 + 26) + "px")); }
   addEventListener("resize", layout); layout();
   let ph = 0, cur = still ? 1 : 0;
   function frame() {

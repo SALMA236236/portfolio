@@ -66,7 +66,7 @@ h2{font-size:1.9rem;margin-bottom:22px}
 #dash rect{fill:var(--ink);opacity:.55}
 #orb{fill:var(--b);filter:drop-shadow(0 0 8px var(--b))}
 .stop{position:absolute;width:0;height:0}
-.nd{position:absolute;left:0;top:0;transform:translate(-50%,-50%);width:calc(64px*var(--s,1));height:calc(64px*var(--s,1));border-radius:50%;border:3px solid var(--bg);background:var(--c);font-size:calc(1.6rem*var(--s,1));cursor:pointer;display:grid;place-items:center;box-shadow:0 0 0 2px var(--c),0 10px 26px -6px var(--c);transition:filter .6s,opacity .6s,transform .2s}
+.nd{position:absolute;left:0;top:0;transform:translate(-50%,-50%);width:calc(25px*var(--s,1));height:calc(25px*var(--s,1));border-radius:50%;border:3px solid var(--bg);background:var(--c);font-size:calc(1.6rem*var(--s,1));cursor:pointer;display:grid;place-items:center;box-shadow:0 0 0 2px var(--c),0 10px 26px -6px var(--c);transition:filter .6s,opacity .6s,transform .2s}
 .nd:hover{transform:translate(-50%,-50%) scale(1.12)}
 .lb{position:absolute;top:0;transform:translateY(-50%);width:220px;padding:12px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(8px);transition:opacity .6s}
 .r .lb{left:var(--off,60px)}.l .lb{right:var(--off,60px)}.l .lb{text-align:right}
