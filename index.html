@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio – Big Data & IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div id="home">
+<div class="w">
+<nav><span class="brand">&lt;/&gt; portfolio</span><span><button id="lang">EN</button> <button id="theme" aria-label="Thème">◐</button></span></nav>
+
+<header class="hero">
+  <div class="ph"><img src="photo.jpg" alt="Photo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'AI'}))"></div>
+  <div>
+    <h1>BOUZHAR SALMA</h1>
+    <p class="role"><span id="typed"></span><i>|</i></p>
+  </div>
+</header>
+
+<section id="about">
+  <h2 data-fr="À propos" data-en="About"></h2>
+  <p class="ab"data-fr="Élève ingénieure en Big Data et Intelligence Artificielle, intéressée par les pipelines de données scalables, les architectures de streaming en temps réel et les systèmes d'IA pour l'analyse prédictive et l'aide à la décision. Passionnée par le traitement de données à grande échelle, le machine learning et la data science, je perfectionne continuellement mes compétences en modélisation de données, visualisation et systèmes intelligents pour concevoir des solutions innovantes et efficaces."
+     data-en="Engineering student specializing in Big Data and Artificial Intelligence, focused on scalable data pipelines, real-time streaming architectures, and AI-driven systems for predictive analytics and decision-making. Passionate about large-scale data processing, machine learning, and data science, continuously improving skills in data modeling, visualization, and intelligent systems to build innovative and efficient solutions."></p>
+</section>
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="cc">
+    <a class="g" href="https://mail.google.com/mail/?view=cm&to=bouzhar.salma@etu.uae.ac.ma&su=Contact%20depuis%20votre%20portfolio" target="_blank" rel="noopener">✉ Email</a>
+    <a class="g" href="https://github.com/SALMA236236" target="_blank" rel="noopener">GitHub</a>
+    <a class="g" href="https://www.linkedin.com/in/salma-bouzhar-811b4931a/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="g" href="cv.pdf" target="_blank" rel="noopener" data-fr="Voir le CV" data-en="View CV"></a>
+    <a class="g" href="cv.pdf" download="CV-Prenom-Nom.pdf" data-fr="Télécharger le CV" data-en="Download CV"></a>
+   
+  </div>
+</section>
+
+<section id="journey">
+  <h2>Journey</h2>
+  <div class="road" id="road">
+  <svg id="rs" viewBox="0 0 900 520" aria-hidden="true">
+    <defs>
+      <linearGradient id="rf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fb7185" stop-opacity=".05"/><stop offset="1" stop-color="#a78bfa" stop-opacity=".28"/></linearGradient>
+      <radialGradient id="hg"><stop offset="0" stop-color="#fb7185" stop-opacity=".6"/><stop offset="1" stop-color="#fb7185" stop-opacity="0"/></radialGradient>
+    </defs>
+    <ellipse cx="300" cy="70" rx="280" ry="70" fill="url(#hg)"/>
+    <polygon id="rd" fill="url(#rf)" stroke="var(--a)" stroke-opacity=".5" stroke-width="2"/>
+    <g id="dash"></g>
+    <circle id="orb" r="6" cx="450" cy="70"/>
+  </svg>
+  <div class="stop r" data-d="0.13" style="--c:#2dd4bf"><div class="lb"><small>2020 – 2023</small><h3 data-fr="Baccalauréat, Sciences Physiques" data-en="High School Diploma, Physical Sciences"></h3><p class="more" data-fr="Lycée Alkhawarizmi, Ouezzane" data-en="Alkhawarizmi High School, Ouezzane"></p></div><button class="nd" aria-label="High School Diploma, Physical Sciences"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg></button></div>
+  <div class="stop l" data-d="0.45" style="--c:#a78bfa"><div class="lb"><small>2023 – 2025</small><h3 data-fr="Classes préparatoires intégrées" data-en="Integrated Preparatory Classes"></h3><p class="more" data-fr="ENSA Tétouan (École Nationale des Sciences Appliquées)" data-en="ENSA Tetouan (National School of Applied Sciences)"></p></div><button class="nd" aria-label="Integrated Preparatory Classes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21z M7 13l2 2M10 10l2 2M13 7l2 2"/></svg></button></div>
+  <div class="stop r" data-d="0.85" style="--c:#fb7185"><div class="lb"><small>2025 – 2028</small><h3 data-fr="Cycle ingénieur, Big Data & IA" data-en="Engineering student at Big Data & AI"></h3><p class="more" data-fr="ENSA Tétouan (École Nationale des Sciences Appliquées), année en cours" data-en="ENSA Tetouan (National School of Applied Sciences), current year"></p></div><button class="nd" aria-label="First-Year Engineering, Big Data & AI"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></button></div>
+
+</section>
+
+<section id="explore">
+  <h2 data-fr="Explorer" data-en="Explore"></h2>
+  <div class="grid">
+    <a class="card" href="#/projects"><em>{ }</em><h3 data-fr="Projets" data-en="Projects"></h3><p data-fr="Modèles, pipelines, applications" data-en="Models, pipelines, apps"></p></a>
+    <a class="card" href="#/certificates"><em>✔</em><h3 data-fr="Certificats" data-en="Certificates"></h3><p data-fr="Formations et certifications" data-en="Courses and certifications"></p></a>
+    <a class="card" href="#/skills"><em>⚙</em><h3 data-fr="Compétences techniques" data-en="Technical skills"></h3><p data-fr="Données, IA, outils" data-en="Data, AI, tools"></p></a>
+    <a class="card" href="#/languages"><em>Aa</em><h3 data-fr="Langues & intérêts" data-en="Languages & interests"></h3><p data-fr="Langues, soft skills, hackathons" data-en="Languages, soft skills, hackathons"></p></a>
+  </div>
+</section>
+</div>
+</div>
+
+<main id="views" class="w" hidden>
+  <a class="back" href="#" data-fr="← Retour" data-en="← Back"></a>
+
+  <article class="view" id="projects" hidden>
+    <h2 data-fr="Projets" data-en="Projects"></h2>
+    <div class="filters"><button class="on" data-f="all" data-fr="Tous" data-en="All"></button><button data-f="ml">Machine Learning</button><button data-f="data">Big Data</button><button data-f="nlp">NLP</button></div>
+    <div class="grid">
+      <div class="card st" data-tags="ml"><h3 data-fr="Prédiction de [sujet]" data-en="[Topic] prediction"></h3><p data-fr="Modèle entraîné sur [jeu de données]. Résultat : [métrique]." data-en="Model trained on [dataset]. Result: [metric]."></p><div class="t"><span>Python</span><span>scikit-learn</span></div></div>
+      <div class="card st" data-tags="data"><h3 data-fr="Pipeline de données [sujet]" data-en="[Topic] data pipeline"></h3><p data-fr="Traitement de [volume] de données, du stockage au tableau de bord." data-en="Processing [volume] of data, from storage to dashboard."></p><div class="t"><span>Spark</span><span>Kafka</span></div></div>
+      <div class="card st" data-tags="nlp ml"><h3 data-fr="Analyse de texte [sujet]" data-en="[Topic] text analysis"></h3><p data-fr="Classification de textes avec un modèle de langage." data-en="Text classification with a language model."></p><div class="t"><span>PyTorch</span><span>NLP</span></div></div>
+    </div>
+  </article>
+
+  <article class="view" id="certificates" hidden>
+    <h2 data-fr="Certificats" data-en="Certificates"></h2>
+    <div class="grid">
+      <div class="card st"><h3>[Certification 1]</h3><p data-fr="[Organisme], [année]" data-en="[Issuer], [year]"></p></div>
+      <div class="card st"><h3>[Certification 2]</h3><p data-fr="[Organisme], [année]" data-en="[Issuer], [year]"></p></div>
+      <div class="card st"><h3>[Certification 3]</h3><p data-fr="[Organisme], [année]" data-en="[Issuer], [year]"></p></div>
+    </div>
+  </article>
+
+  <article class="view" id="skills" hidden>
+    <h2 data-fr="Compétences techniques" data-en="Technical skills"></h2>
+    <div class="bars">
+      <div style="--w:90%"><b>Python</b><i></i></div><div style="--w:80%"><b>SQL</b><i></i></div>
+      <div style="--w:70%"><b>Machine Learning</b><i></i></div><div style="--w:65%"><b>Deep Learning (PyTorch)</b><i></i></div>
+      <div style="--w:60%"><b>Spark / Hadoop</b><i></i></div><div style="--w:75%"><b>Git / Docker</b><i></i></div>
+    </div>
+    <p class="note" data-fr="Les niveaux sont indicatifs : modifie la valeur --w de chaque barre." data-en="Levels are indicative: edit each bar's --w value."></p>
+  </article>
+
+  <article class="view" id="languages" hidden>
+    <h2 data-fr="Langues & intérêts" data-en="Languages & interests"></h2>
+    <div class="grid">
+      <div class="card st"><h3 data-fr="Langues" data-en="Languages"></h3><p data-fr="Arabe [niveau], Français [niveau], Anglais [niveau]" data-en="Arabic [level], French [level], English [level]"></p></div>
+      <div class="card st"><h3 data-fr="Soft skills" data-en="Soft skills"></h3><p data-fr="Travail en équipe, esprit d'analyse, curiosité" data-en="Teamwork, analytical mind, curiosity"></p></div>
+      <div class="card st"><h3 data-fr="Hackathons & clubs" data-en="Hackathons & clubs"></h3><p data-fr="[Événement], [rôle], [année]" data-en="[Event], [role], [year]"></p></div>
+    </div>
+  </article>
+
+  <article class="view" id="message" hidden>
+    <h2 data-fr="Écrire un message" data-en="Send a message"></h2>
+    <form class="cf" action="https://formspree.io/f/VOTRE_ID" method="POST">
+      <input name="name" required data-pfr="Votre nom" data-pen="Your name">
+      <input name="email" type="email" required data-pfr="Votre email" data-pen="Your email">
+      <textarea name="message" rows="5" required data-pfr="Votre message" data-pen="Your message"></textarea>
+      <button class="btn" type="submit" data-fr="Envoyer" data-en="Send"></button>
+    </form>
+  </article>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
