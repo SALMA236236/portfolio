@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio – Big Data & IA</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+
+<dialog id="lb"><img alt=""><p></p></dialog>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -81,44 +84,364 @@
 
 <main id="views" class="w" hidden>
   <a class="back" href="#" data-fr="← Retour" data-en="← Back"></a>
+<article class="view" id="projects" hidden>
+  <h2 data-fr="Projets" data-en="Projects"></h2>
+  <div class="filters">
+    <button class="on" data-f="all" data-fr="Tous" data-en="All"></button>
+    <button data-f="data">Big Data</button>
+    <button data-f="ml">Machine Learning</button>
+    <button data-f="nlp">NLP</button>
+    <button data-f="web" data-fr="Web & Systèmes" data-en="Web & Systems"></button>
+  </div>
+  <div class="grid">
 
-  <article class="view" id="projects" hidden>
-    <h2 data-fr="Projets" data-en="Projects"></h2>
-    <div class="filters"><button class="on" data-f="all" data-fr="Tous" data-en="All"></button><button data-f="ml">Machine Learning</button><button data-f="data">Big Data</button><button data-f="nlp">NLP</button></div>
-    <div class="grid">
-      <div class="card st" data-tags="ml"><h3 data-fr="Prédiction de [sujet]" data-en="[Topic] prediction"></h3><p data-fr="Modèle entraîné sur [jeu de données]. Résultat : [métrique]." data-en="Model trained on [dataset]. Result: [metric]."></p><div class="t"><span>Python</span><span>scikit-learn</span></div></div>
-      <div class="card st" data-tags="data"><h3 data-fr="Pipeline de données [sujet]" data-en="[Topic] data pipeline"></h3><p data-fr="Traitement de [volume] de données, du stockage au tableau de bord." data-en="Processing [volume] of data, from storage to dashboard."></p><div class="t"><span>Spark</span><span>Kafka</span></div></div>
-      <div class="card st" data-tags="nlp ml"><h3 data-fr="Analyse de texte [sujet]" data-en="[Topic] text analysis"></h3><p data-fr="Classification de textes avec un modèle de langage." data-en="Text classification with a language model."></p><div class="t"><span>PyTorch</span><span>NLP</span></div></div>
+    <div class="card pc" data-tags="data ml" tabindex="0" role="button">
+      <small class="kind" data-fr="Big Data · Temps réel" data-en="Big Data · Real time"></small>
+      <h3 data-fr="Analyse du comportement client en temps réel et système de recommandation" data-en="Real-Time Customer Behavior Analytics and Recommendation System"></h3>
+      <p data-fr="Pipeline Big Data temps réel pour analyser le comportement des clients et proposer des recommandations dynamiques." data-en="Real-time Big Data pipeline to analyze customer behavior and deliver dynamic recommendations."></p>
+      <div class="t"><span>Kafka</span><span>Spark</span><span>NoSQL</span><span>Machine Learning</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Pipeline de bout en bout : ingestion des événements avec Kafka, traitement avec Spark, stockage dans une base NoSQL et modèle de machine learning produisant des recommandations dynamiques." data-en="End-to-end pipeline: event ingestion with Kafka, processing with Spark, storage in a NoSQL database and a machine learning model producing dynamic recommendations."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Résultats chiffrés : volume traité, latence, performance du modèle]" data-en="[Measured results: data volume, latency, model performance]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="card pc" data-tags="ml" tabindex="0" role="button">
+      <small class="kind" data-fr="Deep Learning" data-en="Deep Learning"></small>
+      <h3 data-fr="Système de recommandation de films" data-en="Movie Recommendation System"></h3>
+      <p data-fr="Système hybride combinant filtrage collaboratif et filtrage par contenu pour des recommandations personnalisées." data-en="Hybrid system combining collaborative and content-based filtering for personalized recommendations."></p>
+      <div class="t"><span>Deep Learning</span><span>Filtrage collaboratif</span><span>Filtrage par contenu</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Modèle de deep learning qui associe les préférences des utilisateurs (filtrage collaboratif) et les caractéristiques des films (filtrage par contenu)." data-en="Deep learning model combining user preferences (collaborative filtering) and movie features (content-based filtering)."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Jeu de données utilisé, métriques : RMSE, précision@K...]" data-en="[Dataset used, metrics: RMSE, precision@K...]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="card pc" data-tags="data" tabindex="0" role="button">
+      <small class="kind" data-fr="Big Data · Smart city" data-en="Big Data · Smart city"></small>
+      <h3 data-fr="Plateforme énergétique temps réel pour villes intelligentes" data-en="Real-Time Energy Platform for Smart Cities"></h3>
+      <p data-fr="Plateforme d'analyse en temps réel pour suivre la consommation et générer des recommandations d'optimisation." data-en="Real-time analytics platform to monitor consumption and generate optimization recommendations."></p>
+      <div class="t"><span>Kafka</span><span>Spark Streaming</span><span>MongoDB</span><span>Power BI</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Collecte des données de consommation avec Kafka, traitement en continu avec Spark Streaming, stockage dans MongoDB et tableaux de bord Power BI avec recommandations d'optimisation." data-en="Consumption data collected with Kafka, stream processing with Spark Streaming, storage in MongoDB and Power BI dashboards with optimization recommendations."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Résultats : indicateurs suivis, gains estimés, captures du tableau de bord]" data-en="[Results: tracked indicators, estimated gains, dashboard screenshots]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="card pc" data-tags="web" tabindex="0" role="button">
+      <small class="kind" data-fr="Développement web" data-en="Web development"></small>
+      <h3 data-fr="Application web de tourisme" data-en="Tourism Web Application"></h3>
+      <p data-fr="Application web pour découvrir des destinations et recevoir des recommandations." data-en="Web application for destination discovery and recommendations."></p>
+      <div class="t"><span>Node.js</span><span>React</span><span>PostgreSQL</span><span>Prisma</span><span>Docker</span><span>REST API</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Interface React, API REST sous Node.js, base PostgreSQL gérée avec Prisma ORM, et conteneurisation avec Docker." data-en="React interface, Node.js REST API, PostgreSQL database managed with Prisma ORM, and Docker containerization."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Fonctionnalités principales, captures d'écran, lien vers la démo]" data-en="[Main features, screenshots, demo link]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="card pc" data-tags="ml" tabindex="0" role="button">
+      <small class="kind" data-fr="Machine Learning" data-en="Machine Learning"></small>
+      <h3 data-fr="Maintenance prédictive des pannes de disques durs" data-en="Predictive Maintenance of Hard Drive Failures"></h3>
+      <p data-fr="Système de maintenance prédictive pour détecter les pannes potentielles de disques durs et améliorer la fiabilité." data-en="Predictive maintenance system to detect potential hard drive failures and improve reliability."></p>
+      <div class="t"><span>Machine Learning</span><span>Maintenance prédictive</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Modèle de machine learning entraîné pour repérer les signes avant-coureurs de défaillance d'un disque dur." data-en="Machine learning model trained to spot early warning signs of hard drive failure."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Jeu de données, modèle choisi, métriques : précision, rappel, F1...]" data-en="[Dataset, chosen model, metrics: precision, recall, F1...]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="card pc" data-tags="web" tabindex="0" role="button">
+      <small class="kind" data-fr="Systèmes · Linux" data-en="Systems · Linux"></small>
+      <h3 data-fr="Système automatisé d'accueil des étudiants" data-en="Automated Student Onboarding System"></h3>
+      <p data-fr="Automatisation de la création des comptes utilisateurs et de la configuration des environnements." data-en="Automation of user provisioning and environment configuration."></p>
+      <div class="t"><span>Linux</span><span>Scripting</span><span>Bases de données</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Scripts sous Linux reliés à une base de données pour créer automatiquement les comptes des étudiants et configurer leur environnement de travail." data-en="Linux scripts connected to a database to automatically create student accounts and set up their working environment."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Temps gagné, nombre d'étudiants gérés, outils de script utilisés]" data-en="[Time saved, number of students handled, scripting tools used]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="card pc" data-tags="nlp ml" tabindex="0" role="button">
+      <small class="kind" data-fr="NLP" data-en="NLP"></small>
+      <h3 data-fr="Système d'analyse de sentiments" data-en="Sentiment Analysis System"></h3>
+      <p data-fr="Système de NLP qui classe le sentiment de textes et en extrait des informations utiles." data-en="NLP system that classifies text sentiment and extracts insights from textual data."></p>
+      <div class="t"><span>NLP</span><span>Machine Learning</span></div>
+      <div class="det" hidden>
+        <h4 data-fr="Réalisation" data-en="What I built"></h4>
+        <p data-fr="Modèle de machine learning entraîné à classer le sentiment de textes, avec extraction d'informations à partir des données textuelles." data-en="Machine learning model trained to classify text sentiment, with insight extraction from textual data."></p>
+        <h4 data-fr="Résultats" data-en="Results"></h4>
+        <p data-fr="[Jeu de données, modèle, métriques : précision, F1...]" data-en="[Dataset, model, metrics: accuracy, F1...]"></p>
+        <div class="lk"><a class="g" href="https://github.com/ton-pseudo/NOM-DU-DEPOT" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
     </div>
   </article>
 
   <article class="view" id="certificates" hidden>
-    <h2 data-fr="Certificats" data-en="Certificates"></h2>
-    <div class="grid">
-      <div class="card st"><h3>[Certification 1]</h3><p data-fr="[Organisme], [année]" data-en="[Issuer], [year]"></p></div>
-      <div class="card st"><h3>[Certification 2]</h3><p data-fr="[Organisme], [année]" data-en="[Issuer], [year]"></p></div>
-      <div class="card st"><h3>[Certification 3]</h3><p data-fr="[Organisme], [année]" data-en="[Issuer], [year]"></p></div>
-    </div>
-  </article>
+  <h2 data-fr="Certificats" data-en="Certificates"></h2>
+  <div class="grid">
 
-  <article class="view" id="skills" hidden>
-    <h2 data-fr="Compétences techniques" data-en="Technical skills"></h2>
-    <div class="bars">
-      <div style="--w:90%"><b>Python</b><i></i></div><div style="--w:80%"><b>SQL</b><i></i></div>
-      <div style="--w:70%"><b>Machine Learning</b><i></i></div><div style="--w:65%"><b>Deep Learning (PyTorch)</b><i></i></div>
-      <div style="--w:60%"><b>Spark / Hadoop</b><i></i></div><div style="--w:75%"><b>Git / Docker</b><i></i></div>
+    <div class="card cert">
+      <small class="kind" data-fr="Python · Data Science · IA" data-en="Python · Data Science · AI"></small>
+      <h3>Python for Data Science, AI &amp; Development</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/python-data-science-ai.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
     </div>
-    <p class="note" data-fr="Les niveaux sont indicatifs : modifie la valeur --w de chaque barre." data-en="Levels are indicative: edit each bar's --w value."></p>
-  </article>
 
-  <article class="view" id="languages" hidden>
-    <h2 data-fr="Langues & intérêts" data-en="Languages & interests"></h2>
-    <div class="grid">
-      <div class="card st"><h3 data-fr="Langues" data-en="Languages"></h3><p data-fr="Arabe [niveau], Français [niveau], Anglais [niveau]" data-en="Arabic [level], French [level], English [level]"></p></div>
-      <div class="card st"><h3 data-fr="Soft skills" data-en="Soft skills"></h3><p data-fr="Travail en équipe, esprit d'analyse, curiosité" data-en="Teamwork, analytical mind, curiosity"></p></div>
-      <div class="card st"><h3 data-fr="Hackathons & clubs" data-en="Hackathons & clubs"></h3><p data-fr="[Événement], [rôle], [année]" data-en="[Event], [role], [year]"></p></div>
+    <div class="card cert">
+      <small class="kind" data-fr="NumPy · Pandas" data-en="NumPy · Pandas"></small>
+      <h3>NumPy and Pandas Basics for Future Data Scient… [titre complet]</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/numpy-pandas-basics.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
     </div>
-  </article>
+
+    <div class="card cert">
+      <small class="kind" data-fr="Python · Analyse de données" data-en="Python · Data analysis"></small>
+      <h3>Python for Data Analysis: Pandas, NumPy</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/python-data-analysis.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
+    </div>
+
+    <div class="card cert">
+      <small class="kind" data-fr="Pandas · Niveau débutant" data-en="Pandas · Foundations"></small>
+      <h3>Foundations of Data Analysis with Pandas and … [titre complet]</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/pandas-foundations.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
+    </div>
+
+    <div class="card cert">
+      <small class="kind" data-fr="Pandas · Niveau intermédiaire" data-en="Pandas · Intermediate"></small>
+      <h3>Intermediate Data Analysis Techniques with pandas</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/pandas-intermediate.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
+    </div>
+
+    <div class="card cert">
+      <small class="kind" data-fr="Analyse · Visualisation · Avancé" data-en="Analysis · Visualization · Advanced"></small>
+      <h3>Advanced Data Analysis and Visualization with … [titre complet]</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/advanced-analysis-visualization.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
+    </div>
+
+    <div class="card cert">
+      <small class="kind" data-fr="Spécialisation" data-en="Specialization"></small>
+      <h3>Data Analysis with pandas and Python Specializ… [titre complet]</h3>
+      <p data-fr="[Organisme] · [Mois année]" data-en="[Issuer] · [Month year]"></p>
+      <div class="lk"><a class="g" href="certificats/specialization-pandas-python.pdf" target="_blank" rel="noopener" data-fr="Voir le certificat" data-en="View certificate"></a></div>
+    </div>
+
+  </div>
+</article>
+
+<article class="view" id="skills" hidden>
+  <h2 data-fr="Compétences techniques" data-en="Technical skills"></h2>
+  <div class="skg">
+
+    <div class="card st">
+      <h3 data-fr="Langages de programmation" data-en="Programming languages"></h3>
+      <div class="t"><span>Python</span><span>SQL</span><span>Java</span><span>JavaScript</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Écosystème Big Data" data-en="Big Data ecosystem"></h3>
+      <div class="t"><span>Hadoop</span><span>Spark</span><span>PySpark</span><span>Kafka</span><span>Flink</span><span>Hive</span><span>Airflow</span><span>Talend</span><span>Prefect</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Modern Data Stack" data-en="Modern Data Stack"></h3>
+      <div class="t"><span>dbt</span><span>Databricks</span><span>Delta Lake</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Bases de données" data-en="Databases"></h3>
+      <div class="t"><span>MySQL</span><span>PostgreSQL</span><span>Oracle</span><span>Snowflake</span><span>MongoDB</span><span>Neo4j</span><span>ChromaDB</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Machine Learning & IA" data-en="Machine Learning & AI"></h3>
+      <div class="t"><span>Machine Learning</span><span>Deep Learning</span><span>NLP</span><span data-fr="Systèmes de recommandation" data-en="Recommender systems"></span><span data-fr="Maintenance prédictive" data-en="Predictive maintenance"></span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Conteneurisation & Orchestration" data-en="Containerization & Orchestration"></h3>
+      <div class="t"><span>Docker</span><span>Kubernetes</span><span>Docker Swarm</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Développement & Déploiement" data-en="Development & Deployment"></h3>
+      <div class="t"><span>Django</span><span>Flask</span><span>FastAPI</span><span>React</span><span>Node.js</span><span>Prisma</span><span>REST APIs</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Analyse & Visualisation BI" data-en="Analysis & BI visualization"></h3>
+      <div class="t"><span>Pandas</span><span>NumPy</span><span>Power BI</span><span>Tableau</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Gestion de versions" data-en="Version control"></h3>
+      <div class="t"><span>Git</span><span>GitHub</span><span>DVC</span></div>
+    </div>
+
+    <div class="card st">
+      <h3 data-fr="Systèmes d'exploitation" data-en="Operating systems"></h3>
+      <div class="t"><span>Ubuntu Server</span><span>Linux</span></div>
+    </div>
+
+  </div>
+</article>
+
+
+<article class="view" id="languages" hidden>
+  <h2 data-fr="Langues & intérêts" data-en="Languages & interests"></h2>
+
+  <div class="kpis">
+    <button class="kpi on" data-t="l"><b data-n="3">3</b><span data-fr="Langues" data-en="Languages"></span></button>
+    <button class="kpi" data-t="s"><b data-n="4">7</b><span data-fr="Compétences professionnelles" data-en="Professional skills"></span></button>
+    <button class="kpi" data-t="c"><b data-n="2">3</b><span data-fr="Clubs" data-en="Clubs"></span></button>
+    <button class="kpi" data-t="i"><b data-n="4">6</b><span data-fr="Centres d'intérêt" data-en="Interests"></span></button>
+  </div>
+
+  <div class="card st dp" id="dp-l">
+    <div class="ax"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></div>
+    <div class="lg"><div class="lh"><span data-fr="Arabe" data-en="Arabic"></span><em data-fr="Langue maternelle" data-en="Native"></em></div><div class="sc" style="--p:100%"><i></i></div></div>
+    <div class="lg"><div class="lh"><span data-fr="Français" data-en="French"></span><em data-fr="Pré-avancé · ≈ B2" data-en="Pre-advanced · ≈ B2"></em></div><div class="sc" style="--p:67%"><i></i></div></div>
+    <div class="lg"><div class="lh"><span data-fr="Anglais" data-en="English"></span><em data-fr="Intermédiaire · ≈ B1" data-en="Intermediate · ≈ B1"></em></div><div class="sc" style="--p:50%"><i></i></div></div>
+  </div>
+
+
+   <div class="card st dp" id="dp-s" hidden>
+  <div class="psg">
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 0 1 0 6M18 14c2 .6 3 2.4 3 5"/></svg></div>
+      <div><h4 data-fr="Leadership & coordination" data-en="Leadership & coordination"></h4>
+      <p data-fr="Leadership d'équipe et coordination de projet" data-en="Team leadership and project coordination"></p></div>
+    </div>
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div>
+      <div><h4 data-fr="Communication & collaboration" data-en="Communication & collaboration"></h4>
+      <p data-fr="Communication, collaboration et efficacité" data-en="Communication, collaboration and efficiency"></p></div>
+    </div>
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></div>
+      <div><h4 data-fr="Adaptabilité & esprit critique" data-en="Adaptability & critical thinking"></h4>
+      <p data-fr="Adaptabilité, résolution de problèmes et esprit critique" data-en="Adaptability, problem-solving and critical thinking"></p></div>
+    </div>
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div>
+      <div><h4 data-fr="Stratégie & décision" data-en="Strategy & decision-making"></h4>
+      <p data-fr="Planification stratégique et décision basée sur les données" data-en="Strategic planning and data-driven decision making"></p></div>
+    </div>
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4zM7 10.5V15c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg></div>
+      <div><h4 data-fr="Apprentissage continu" data-en="Continuous learning"></h4>
+      <p data-fr="Curiosité et montée en compétences permanente sur les nouvelles technologies" data-en="Curiosity and constant upskilling on new technologies"></p></div>
+    </div>
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div><h4 data-fr="Organisation & gestion du temps" data-en="Organization & time management"></h4>
+      <p data-fr="Gestion des priorités et respect des délais" data-en="Prioritization and meeting deadlines"></p></div>
+    </div>
+
+    <div class="ps">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M8.5 11l2 2 3.5-4"/></svg></div>
+      <div><h4 data-fr="Rigueur & sens du détail" data-en="Rigor & attention to detail"></h4>
+      <p data-fr="Précision dans l'analyse et la qualité des données" data-en="Precision in analysis and data quality"></p></div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+  <div class="card st dp" id="dp-c" hidden>
+   <div class="cl">
+    <button class="cb" data-logo="logos/ai-geeks-club.png"><b>AI Geeks Club</b><small data-fr="Membre" data-en="Member"></small></button>
+    <button class="cb" data-logo="logos/cyberguardians.png"><b>CyberGuardians</b><small data-fr="Membre" data-en="Member"></small></button>
+    <button class="cb" data-logo="logos/mecatronique.png"><b data-fr="Club Mécatronique" data-en="Mechatronics Club"></b><small data-fr="Membre" data-en="Member"></small></button>
+   </div>
+   
+  </div>
+   
+  <div class="card st dp" id="dp-i" hidden>
+  <div class="ix">
+    <div class="il">
+
+      <div class="ib on" tabindex="0" style="--c:#fb7185"><i>01</i>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/></svg>
+        <b data-fr="Politique" data-en="Politics"></b>
+        <p hidden data-fr="Comprendre les enjeux publics et le rôle des données dans la décision." data-en="Understanding public issues and the role of data in decision-making."></p>
+        <u hidden data-fr="Esprit critique · Analyse · Culture générale" data-en="Critical thinking · Analysis · General knowledge"></u></div>
+
+      <div class="ib" tabindex="0" style="--c:#fbbf24"><i>02</i>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/></svg>
+        <b data-fr="Histoire" data-en="History"></b>
+        <p hidden data-fr="Lire le passé pour mieux interpréter le présent." data-en="Reading the past to better understand the present."></p>
+        <u hidden data-fr="Recul · Analyse de sources · Rigueur" data-en="Perspective · Source analysis · Rigor"></u></div>
+
+      <div class="ib" tabindex="0" style="--c:#2dd4bf"><i>03</i>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h2M20 12h2M5 8v8M8 6v12M16 6v12M19 8v8M8 12h8"/></svg>
+        <b data-fr="Sport" data-en="Sport"></b>
+        <p hidden data-fr="Discipline, persévérance et esprit d'équipe." data-en="Discipline, perseverance and team spirit."></p>
+        <u hidden data-fr="Discipline · Persévérance · Esprit d'équipe" data-en="Discipline · Perseverance · Team spirit"></u></div>
+
+      <div class="ib" tabindex="0" style="--c:#a78bfa"><i>04</i>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+        <b data-fr="Nouvelles technologies" data-en="New technologies"></b>
+        <p hidden data-fr="Veille permanente sur l'IA, le Big Data et le cloud." data-en="Constantly following AI, Big Data and cloud trends."></p>
+        <u hidden data-fr="Veille · Curiosité · Apprentissage continu" data-en="Tech watch · Curiosity · Continuous learning"></u></div>
+
+      <div class="ib" tabindex="0" style="--c:#f472b6"><i>05</i>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v13c-3-1-6-1-8 1-2-2-5-2-8-1zM12 6v13"/></svg>
+        <b data-fr="Lecture" data-en="Reading"></b>
+        <p hidden data-fr="Livres de [genre] pour élargir ma culture et ma réflexion." data-en="[Genre] books to broaden my knowledge and thinking."></p>
+        <u hidden data-fr="Concentration · Culture · Réflexion" data-en="Focus · Knowledge · Reflection"></u></div>
+
+      <div class="ib" tabindex="0" style="--c:#38bdf8"><i>06</i>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        <b data-fr="Voyages" data-en="Travel"></b>
+        <p hidden data-fr="Découvrir d'autres cultures et d'autres façons de penser." data-en="Discovering other cultures and ways of thinking."></p>
+        <u hidden data-fr="Adaptabilité · Ouverture · Communication" data-en="Adaptability · Openness · Communication"></u></div>
+
+    </div>
+    <div class="id"></div>
+  </div>
+</div>
+ 
+
+
+</article>
+
+
 
   <article class="view" id="message" hidden>
     <h2 data-fr="Écrire un message" data-en="Send a message"></h2>

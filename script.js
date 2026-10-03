@@ -108,7 +108,7 @@ document.addEventListener("pointermove", e => {
   }
   frame();
 })();
-$("#dl").onclick = async e => {
+if ($("#dl")) $("#dl").onclick = async e => {
   if (!location.protocol.startsWith("http")) return; // ouverture directe du fichier : comportement normal
   e.preventDefault();
   try {
@@ -120,3 +120,163 @@ $("#dl").onclick = async e => {
     location.href = "cv.pdf"; // en cas d'échec, le CV s'ouvre au lieu de rester bloqué
   }
 };
+
+
+// ---------- Fenêtre de détails d'un projet ----------
+const dlg = $("#pd");
+if (dlg) {
+  $$("#projects .pc").forEach(c => {
+    const open = () => {
+      $("#pdc").innerHTML = c.querySelector(".kind").outerHTML + c.querySelector("h3").outerHTML + c.querySelector(".t").outerHTML + c.querySelector(".det").innerHTML;
+      applyLang();
+      dlg.showModal();
+    };
+    c.onclick = open;
+    c.onkeydown = e => { if (e.key === "Enter") open(); };
+  });
+  dlg.onclick = e => { if (e.target === dlg) dlg.close(); };
+}
+
+// ---------- Compétences : liste de catégories + panneau avec logos ----------
+(function () {
+  const v = $("#skills"); if (!v || $(".sk2", v)) return;
+  const cards = $$(".card", v).filter(c => c.querySelector("h3") && c.querySelector(".t"));
+  if (!cards.length) { console.warn("Compétences : aucune carte trouvée dans #skills"); return; }
+
+  // Logos de marques (Simple Icons)
+  const ICONS = {
+    "python": "python", "java": "openjdk", "javascript": "javascript",
+    "hadoop": "apachehadoop", "spark": "apachespark", "pyspark": "apachespark", "kafka": "apachekafka",
+    "flink": "apacheflink", "hive": "apachehive", "airflow": "apacheairflow", "talend": "talend", "prefect": "prefect",
+    "dbt": "dbt", "databricks": "databricks",
+    "mysql": "mysql", "postgresql": "postgresql", "oracle": "oracle", "snowflake": "snowflake", "mongodb": "mongodb", "neo4j": "neo4j",
+    "docker": "docker", "docker swarm": "docker", "kubernetes": "kubernetes",
+    "django": "django", "flask": "flask", "fastapi": "fastapi", "react": "react", "node.js": "nodedotjs", "prisma": "prisma",
+    "pandas": "pandas", "numpy": "numpy", "power bi": "powerbi", "tableau": "tableau",
+    "git": "git", "github": "github", "dvc": "dvc", "ubuntu server": "ubuntu", "linux": "linux"
+  };
+
+  // Icônes dessinées pour les concepts et les marques sans logo
+  const P = {
+    db: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    ml: '<circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6l3.5 5M7 18l3.5-5M13.5 11L17 7M13.5 13L17 17"/>',
+    layers: '<path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/>',
+    chat: '<path d="M4 5h16v11H9l-5 4z"/>',
+    star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+    wrench: '<path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.6-.6-2.6z"/>',
+    code: '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
+    term: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/>',
+    chart: '<path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/>',
+    cube: '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5"/>'
+  };
+  const GEN = {
+    "sql": "db", "chromadb": "db", "delta lake": "layers", "machine learning": "ml", "deep learning": "layers", "nlp": "chat",
+    "recommender systems": "star", "predictive maintenance": "wrench", "rest apis": "code", "linux scripting": "term",
+    "data visualization": "chart"
+  };
+  const generic = key => { const i = document.createElement("i"); i.className = "ic g";
+    i.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + P[GEN[key] || "cube"] + '</svg>'; return i; };
+
+  const nav = document.createElement("div"), panel = document.createElement("div"), wrap = document.createElement("div");
+  nav.className = "skn"; panel.className = "skp"; wrap.className = "sk2";
+  wrap.append(nav, panel);
+  const box = cards[0].parentElement; box.after(wrap); box.style.display = "none";
+  let cur = 0;
+  const btns = cards.map((c, i) => {
+    const h = c.querySelector("h3"), b = document.createElement("button");
+    b.dataset.fr = h.dataset.fr; b.dataset.en = h.dataset.en; b.textContent = h.textContent;
+    b.onclick = () => show(i); nav.append(b); return b;
+  });
+  const slugify = k => k.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function show(i) {
+    cur = i;
+    btns.forEach((b, k) => b.classList.toggle("on", k === i));
+    panel.innerHTML = cards[i].querySelector("h3").outerHTML + cards[i].querySelector(".t").outerHTML;
+    applyLang();
+    
+        $$(".t span", panel).forEach((s, k) => {
+      s.style.setProperty("--i", k);
+      const key = (s.dataset.en || s.textContent).trim().toLowerCase(), cdn = ICONS[key];
+      const im = new Image(); im.className = "ic"; im.alt = "";
+      const fallback = () => im.replaceWith(generic(key));
+      im.onerror = () => {
+        if (!im.dataset.t) { im.dataset.t = 1; cdn ? (im.src = "https://cdn.simpleicons.org/" + cdn) : fallback(); }
+        else fallback();
+      };
+      im.src = "icons/" + slugify(key) + ".svg"; // 1) ton fichier local
+      s.prepend(im);
+    });
+
+  }
+  show(0);
+  $("#lang").addEventListener("click", () => show(cur)); // garde les icônes après le changement de langue
+})();
+
+
+
+
+
+
+// ---------- Langues & intérêts : tableau de bord du profil ----------
+(function () {
+  const v = $("#languages"); if (!v) return;
+  const ks = $$(".kpi", v), ps = $$(".dp", v);
+  function count() {
+    ks.forEach(k => { const b = $("b", k), n = +b.dataset.n; let i = 0; b.textContent = 0;
+      const t = setInterval(() => { b.textContent = ++i; if (i >= n) clearInterval(t); }, 140); });
+  }
+  function open(id) {
+    ks.forEach(k => k.classList.toggle("on", k.dataset.t === id));
+    ps.forEach(p => { const on = p.id === "dp-" + id; p.hidden = !on; p.classList.remove("show");
+      if (on) requestAnimationFrame(() => requestAnimationFrame(() => p.classList.add("show"))); });
+  }
+  ks.forEach(k => k.onclick = () => open(k.dataset.t));
+  addEventListener("hashchange", () => { if (location.hash === "#/languages") { count(); open("l"); } });
+  open("l"); if (location.hash === "#/languages") count();
+})();
+
+
+
+// ---------- Photo en grand au clic sur l'icône d'une compétence ----------
+(function () {
+  const lb = $("#lb"); if (!lb) return;
+  const im = $("img", lb), cap = $("p", lb);
+  $$(".ps .ico").forEach((ic, i) => {
+    const open = () => {
+      const src = ic.dataset.photo || `photos/skill-${i + 1}.jpg`;
+      im.onerror = () => { lb.close(); console.warn("Photo introuvable : " + src); };
+      cap.textContent = ic.closest(".ps").querySelector("h4").textContent;
+      im.src = src;
+      if (!lb.open) lb.showModal();
+    };
+    ic.tabIndex = 0; ic.setAttribute("role", "button");
+    ic.onclick = open;
+    ic.onkeydown = e => { if (e.key === "Enter") open(); };
+  });
+  lb.onclick = () => lb.close();
+})();
+
+
+// ---------- Centres d'intérêt : index + panneau « ce que cela m'apporte » ----------
+(function () {
+  const items = $$(".ib"), pan = $(".id"); if (!items.length || !pan) return;
+  let cur = 0;
+  const txt = (it, s) => (it.querySelector(s)?.textContent || "").trim();
+  function show(i) {
+    cur = i;
+    items.forEach((x, k) => x.classList.toggle("on", k === i));
+    const it = items[i], name = txt(it, "b"), desc = txt(it, "p"), tags = txt(it, "u");
+    if (!desc || !tags) console.warn(`Intérêt « ${name} » : il manque ${!desc ? "la balise <p hidden>" : ""} ${!tags ? "la balise <u hidden>" : ""} dans son bloc`);
+    pan.style.setProperty("--c", it.style.getPropertyValue("--c"));
+    pan.innerHTML =
+      `<div class="big">${it.querySelector("svg")?.outerHTML || ""}</div>` +
+      `<small>${txt(it, "i")} / ${String(items.length).padStart(2, "0")}</small>` +
+      `<h3>${name}</h3><p>${desc}</p>` +
+      (tags ? `<h5>${lang === "fr" ? "Ce que cela m'apporte" : "What it brings me"}</h5>` +
+        `<div class="tg">${tags.split("·").map(t => `<span>${t.trim()}</span>`).join("")}</div>` : "");
+    pan.classList.remove("in"); void pan.offsetWidth; pan.classList.add("in");
+  }
+  items.forEach((it, i) => { it.onmouseenter = () => show(i); it.onclick = () => show(i); it.onfocus = () => show(i); });
+  show(0);
+  $("#lang").addEventListener("click", () => show(cur));
+})();
