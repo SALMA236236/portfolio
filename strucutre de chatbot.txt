@@ -1,0 +1,102 @@
+Chatbot IA pour mon portfolio
+1. La consigne (cahier des charges)
+
+Objectif : ajouter à mon portfolio un assistant virtuel qui répond aux questions des visiteurs (recruteurs, clients) sur mon parcours, mes compétences et mes projets, 24h/24.
+
+Public visé : recruteurs, clients potentiels, collègues.
+
+Fonctionnalités attendues
+
+#	Fonctionnalité	Priorité
+1	Bouton de chat flottant en bas à droite	Obligatoire
+2	Fenêtre de discussion avec historique des messages	Obligatoire
+3	Message de bienvenue à l'ouverture	Obligatoire
+4	Réponses générées par l'IA à partir de mes informations uniquement	Obligatoire
+5	Indicateur de chargement et message d'erreur clair	Obligatoire
+6	Affichage correct sur mobile	Obligatoire
+7	Limites de sécurité (longueur des messages, taille de l'historique)	Obligatoire
+8	Suggestions de questions cliquables (« Tes projets ? », « Comment te contacter ? »)	Optionnel
+9	Réponse dans la langue du visiteur (français/anglais)	Optionnel
+
+Contraintes
+
+Contrainte	Choix
+Coût	100 % gratuit
+Disponibilité	Fonctionne pour tous les visiteurs, sans dépendre de mon PC
+Sécurité	Clé API jamais visible dans le code du navigateur
+Données	Uniquement des informations publiques dans le prompt
+
+Technologies retenues
+
+Couche	Technologie
+Interface	HTML, CSS, JavaScript
+Backend	Fonction serverless sur Vercel (api/chat.js)
+Modèle IA	Gemini 2.5 Flash (API gratuite Google AI Studio), plan B : Flash-Lite
+Secret	Variable d'environnement GEMINI_API_KEY
+
+Livrables : 3 nouveaux fichiers (chatbot.css, chatbot.js, api/chat.js), 1 modification (index.html), un site déployé et testé.
+
+Critères de réussite
+
+Le chat s'ouvre et se ferme sans erreur
+Une question sur mon parcours reçoit une réponse correcte en moins de 5 secondes
+Une question hors sujet reçoit un refus poli avec mon contact
+Ça fonctionne depuis un téléphone, avec mon PC éteint
+Aucune clé visible dans le code source de la page
+2. Les étapes de réalisation
+Phase 1 : Préparation (30 min)
+ Créer un compte Vercel et un compte GitHub (si pas déjà fait)
+ Mettre le portfolio dans un dépôt GitHub
+ Générer la clé gratuite sur aistudio.google.com (« Get API key »)
+ Rédiger le contenu du chatbot (voir le modèle de prompt plus bas)
+Phase 2 : L'interface (1 h)
+ Créer chatbot.css et chatbot.js
+ Ajouter les balises et les liens dans index.html
+ Test : le bouton ouvre/ferme la fenêtre, un message s'affiche (même sans IA, avec une fausse réponse)
+Phase 3 : Le backend (1 h)
+ Créer le dossier api/ et le fichier chat.js (version Gemini)
+ Y coller le prompt système
+ Ajouter GEMINI_API_KEY dans Vercel (Settings → Environment Variables)
+Phase 4 : Déploiement (30 min)
+ Connecter le dépôt GitHub à Vercel
+ Déployer
+ Vérifier que le site est accessible à l'URL fournie
+Phase 5 : Tests (1 h)
+Test	Résultat attendu
+« Parle-moi de ton parcours »	Réponse cohérente avec le prompt
+« Quels sont tes projets ? »	Liste correcte de tes projets
+« Quelle est la capitale de la France ? »	Refus poli, renvoi vers ton contact
+Message de 2 000 caractères	Tronqué sans planter
+Test sur téléphone, PC éteint	Fonctionne
+Clic droit → Afficher la source	Aucune clé visible
+Phase 4 bis : Améliorations (optionnel)
+ Boutons de questions suggérées
+ Limite de messages par visiteur
+ Réponse en anglais si le visiteur écrit en anglais
+3. Modèle de prompt système à remplir
+Tu es l'assistant du portfolio de [PRÉNOM NOM], [TON MÉTIER/FORMATION].
+
+RÈGLES
+- Réponds uniquement à partir des informations ci-dessous.
+- Réponses courtes (3 à 5 phrases), chaleureuses et professionnelles.
+- Réponds dans la langue du visiteur.
+- Si tu ne sais pas ou si la question sort du sujet, dis-le poliment
+  et propose de me contacter à [EMAIL].
+- N'invente jamais d'informations.
+
+PARCOURS
+[Formation, expériences, dates]
+
+COMPÉTENCES
+[Liste]
+
+PROJETS
+[Pour chaque projet : nom, objectif, technologies, résultat]
+
+CONTACT
+[Email, LinkedIn, GitHub]
+4. Planning conseillé
+Durée	Contenu
+Environ 4 h au total	Phases 1 à 5
+1 séance	Phases 1 + 2
+1 séance	Phases 3 + 4 + 5

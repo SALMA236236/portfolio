@@ -1,0 +1,12 @@
+{
+  "name": "mon-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "knowledge": "node scripts/build-knowledge.mjs"
+  },
+  "devDependencies": {
+    "pdf-parse": "1.1.1"
+  }
+}

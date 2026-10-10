@@ -1,0 +1,105 @@
+=== CV ===
+SALMA BOUZHAR
+Big Data & AI Engineering Student
+ +212 703629189ï SALMA BOUZHAR§ github.com/SALMA236236
+# bouzhar.salma@etu.uae.ac.ma* National mobility
+Profile
+Engineering student specializing in Big Data and Artificial Intelligence, focused on scalable data pipelines, real-time streaming
+architectures, and AI-driven systems for predictive analytics and decision-making. Passionate about large-scale data processing,
+machine learning, and data science, continuously improving skills in data modeling, visualization, and intelligent systems to build
+innovative and efficient solutions.
+Education
+First-Year Engineering Student in Big Data and
+Artificial Intelligence2025–2026
+National School of Applied Sciences of Tetouan
+Integrated Preparatory Classes2023–2025
+National School of Applied Sciences of Tetouan
+High School Diploma, Physical Sciences2020–2023
+Alkhawarizmi High School, Ouezzane
+Technical Skills
+• Programming Languages: Python, SQL, Java
+• Big Data Ecosystem: Hadoop, Spark, Kafka, PySpark,
+Hive, Airflow, Flink, Talend, Perfect
+• Modern Data Stack: dbt, Databricks, Delta Lake
+• Databases: MySQL, Oracle, Snowflake, MongoDB,
+PostgreSQL, ChromaDB
+• Containerization & Orchestration: Docker,
+Kubernetes, Docker Swarm
+• Development & Deployment: Django, Flask,
+FastAPI,REACT,Neo4j,Prisma
+• Visualization & BI: Power BI, Tableau
+• Version Control: Git, GitHub, DVC
+• Operating Systems: Ubuntu Server, Linux
+Certificates
+• Deep Learning Specialization: (deeplearning.ai)
+• Machine Learning Specialization: (Stanford)
+• Generative AI with Large Language Models:(aws)
+• SQL for Data Science Specialization: (UC Davis)
+• Big Data with Spark and Hadoop Specialization:
+(IBM)
+• Data Engineering Specialization by
+DeepLearning.AI:(aws)
+• Python Specialization: (University of Michigan)
+• Data Analysis with Pandas and Python: (Packt)
+• Kafka Fundamentals:(Kafka Fundamentals)
+• Oracle cloud infrastructure(Oracle)
+• Understanding artificial intelligence(Datacamp)
+• Generative AI: Introduction and Applications
+(IBM)
+• Developing AI Applications with Python and
+Flask(IBM)
+Projects
+• Real-Time Customer Behavior Analytics and
+Recommendation System: Built a real-time Big Data
+pipeline using Kafka, Spark, NoSQL databases, and
+machine learning to analyze customer behavior and deliver
+dynamic recommendations.
+• Movie Recommendation System: Built a hybrid
+movie recommendation system using deep learning,
+combining collaborative and content-based filtering to
+deliver personalized recommendations.
+• Real-Time Energy Platform Development: Built a
+real-time energy analytics platform for smart cities using
+Kafka, Spark Streaming, MongoDB, and Power BI to
+monitor consumption and generate optimization
+recommendations.
+• Tourism Web Application: Developed a tourism web
+application using Node.js, React, PostgreSQL, Prisma
+ORM, Docker, and REST APIs for destination discovery
+and recommendations.
+• Predictive Maintenance of Hard Drive Failures:
+Built a machine learning-based predictive maintenance
+system to detect potential hard drive failures and improve
+system reliability.
+• Automated student onboarding system: using Linux,
+scripting, and databases for user provisioning and
+environment configuration.
+• Sentiment Analysis System: Built an NLP-based
+machine learning system to classify text sentiment and
+extract insights from textual data.
+Professional Skills
+• Team Leadership and Project Coordination
+• Communication, Collaboration and Efficiency
+• Adaptability, Problem-Solving and Critical Thinking
+• Strategic Planning and Data-Driven Decision Making
+Languages
+• Arabic: Native
+• English: intermediate
+• French: Pre-Advanced
+Extracurricular
+• Member, AI Geeks Club, cyberguardient
+• Interests: Politics, History, Sport, new technologies
+1
+
+=== INFORMATIONS COMPLÉMENTAIRES ===
+LIENS
+- LinkedIn : [https://www.linkedin.com/in/salma-bouzhar-811b4931a/]
+- GitHub : https://github.com/SALMA236236
+- Email : bouzhar.salma@etu.uae.ac.ma
+
+À PROPOS DU PORTFOLIO
+- Ce portfolio est disponible en français et en anglais.
+- Le chatbot répond à partir du CV et des informations de ce portfolio.
+
+[Ajoute ici ce que tu veux : disponibilité pour un stage, domaines recherchés,
+détails sur un projet, FAQ…]
