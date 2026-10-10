@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node dev-server.mjs",
     "knowledge": "node scripts/build-knowledge.mjs"
   },
   "devDependencies": {

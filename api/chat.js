@@ -4,8 +4,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-// Vérifie les noms exacts dans console.groq.com (liste des modèles) : ils peuvent évoluer.
-const MODEL = "llama-3.3-70b-versatile"; // plan B si quota atteint : "llama-3.1-8b-instant"
+// Les modèles gratuits de Groq changent souvent. Le serveur essaie ces modèles dans l'ordre :
+// si le premier n'existe plus (404) ou est saturé (429/503), il passe au suivant.
+// Liste à jour : https://console.groq.com/docs/models
+const MODELS = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"];
 
 const RULES = `Tu es l'assistant du portfolio de son propriétaire. Tu réponds aux visiteurs (recruteurs, clients) à sa place.
 
@@ -57,41 +59,51 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply: "Le chatbot n'est pas encore configuré." });
   }
 
+  let lastStatus = 0;
+
   try {
-    const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: MODEL,
+    for (const model of MODELS) {
+      const body = {
+        model,
         temperature: 0.3,
-        max_tokens: 500,
+        max_completion_tokens: 1000, // large : les modèles "gpt-oss" réfléchissent avant de répondre
         messages: [
           { role: "system", content: `${RULES}\n\nCONTENU DU PORTFOLIO ET DU CV\n${info}` },
           ...history,
         ],
-      }),
-    });
+      };
+      // Réflexion courte = réponses plus rapides et moins de quota consommé
+      if (model.startsWith("openai/gpt-oss")) body.reasoning_effort = "low";
 
-    const data = await r.json();
-
-    if (!r.ok) {
-      console.error("Erreur Groq :", r.status, JSON.stringify(data));
-      return res.status(200).json({
-        reply:
-          r.status === 429
-            ? "Beaucoup de visiteurs en ce moment, réessayez dans quelques minutes."
-            : "Le chatbot rencontre un problème. Réessayez plus tard.",
+      const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+        },
+        body: JSON.stringify(body),
       });
+      const data = await r.json().catch(() => ({}));
+
+      if (r.ok) {
+        const reply = (data.choices?.[0]?.message?.content || "").trim();
+        if (reply) return res.status(200).json({ reply });
+        console.error(`Réponse vide (${model}) :`, JSON.stringify(data.choices?.[0] ?? data));
+        lastStatus = 0;
+        continue; // on essaie le modèle suivant
+      }
+
+      lastStatus = r.status;
+      console.error(`Erreur Groq (${model}) :`, r.status, JSON.stringify(data));
+      if (![404, 429, 503].includes(r.status)) break; // inutile d'essayer un autre modèle (clé invalide, etc.)
     }
 
-    const reply =
-      (data.choices?.[0]?.message?.content || "").trim() ||
-      "Désolé, je n'ai pas de réponse pour le moment.";
-
-    return res.status(200).json({ reply });
+    return res.status(200).json({
+      reply:
+        lastStatus === 429
+          ? "Beaucoup de visiteurs en ce moment, réessayez dans quelques minutes."
+          : "Le chatbot rencontre un problème. Réessayez plus tard.",
+    });
   } catch (err) {
     console.error("Erreur serveur :", err);
     return res.status(200).json({ reply: "Le chatbot est indisponible pour le moment." });
